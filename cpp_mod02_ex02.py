@@ -24,15 +24,15 @@ class Unit:
 			templateType_a = "int"
 			templateType_b = "float"
 		self.ret += '	std::cout << "Testcase ' + str(templateType)
-		self.ret += ': (" << ' + templateType_a + '_a << " ' + self.test_case + ' " << ' + templateType_b + '_b << "):";\n'
+		self.ret += ': (" << ' + templateType_a + '_a << "' + self.test_case + '" << ' + templateType_b + '_b << "): ";\n'
 		self.ret += '	std::cout'
 		if isBool:
 			self.ret += ' << std::boolalpha'
 		self.ret += ' << (' + templateType_a + '_a' + self.test_case + templateType_b + '_b) << std::endl;\n'
 		if "=" in self.test_case and not "mix" in templateType:
 			self.ret += "	Fixed copy_" + templateType_a + "(" + templateType_a + "_a);\n"
-			self.ret += '	std::cout << "Testcase Equal " << ' + templateType + "_a"
-			self.ret += ' << "' + self.test_case + '" << copy_' + templateType_a + '<< ":";\n'
+			self.ret += '	std::cout << "Testcase Equal (" << ' + templateType + '_a << ")"'
+			self.ret += ' << "' + self.test_case + '" << copy_' + templateType_a + '<< ": ";\n'
 			self.ret += '	std::cout << std::boolalpha << (' +templateType + "_a"
 			self.ret += self.test_case + 'copy_' + templateType_a + ') << std::endl;\n'
 
@@ -43,11 +43,11 @@ class Unit:
 			templateType_a = "float"
 		self.ret += '	std::cout << "Testcase ' + str(templateType)
 		if "Pre" in self.name:
-			self.ret += ': ' + templateType_a + '" << "' + self.test_case + '" << ('
+			self.ret += ': (" << ' + templateType_a + '_a << "' + self.test_case + '): " << ('
 			self.ret += templateType_a + "_a" + self.test_case + ') << std::endl;\n'
 		else:
-			self.ret += ': " << "' + self.test_case + '" << ' + templateType_a + '_a << '
-			self.ret += '": " << (' + self.test_case + templateType_a + '_a' + ') << std::endl;\n'
+			self.ret += ': (" << "' + self.test_case + '" << ' + templateType_a + '_a << '
+			self.ret += '"): " << (' + self.test_case + templateType_a + '_a' + ') << std::endl;\n'
 
 	def makeUnit(self, isBool, templateType, level):
 		funcMap = {
