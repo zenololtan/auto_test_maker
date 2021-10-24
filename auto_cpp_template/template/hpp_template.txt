@@ -1,0 +1,12 @@
+#ifndef *NAME*_HPP
+# define *NAME_HPP
+
+class *NAME*
+{
+	private:
+
+	public:
+		
+};
+
+#endif
